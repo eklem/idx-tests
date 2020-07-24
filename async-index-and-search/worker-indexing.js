@@ -1,3 +1,4 @@
+importScripts('https://fergiemcdowall.github.io/search-index/dist/search-index.1.0.6.js');
 // "lazy load"- db may not be immediately initialized
 const db = searchIndex({ name: 'searchIndexInBrowser' })
 console.log('Indexing')
