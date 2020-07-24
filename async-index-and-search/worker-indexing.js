@@ -1,3 +1,5 @@
+// "lazy load"- db may not be immediately initialized
+const db = searchIndex({ name: 'searchIndexInBrowser' })
 console.log('Indexing')
 const readJSONData = function (url) {
   fetch(url)
