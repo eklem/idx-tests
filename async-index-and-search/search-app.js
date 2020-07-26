@@ -1,5 +1,5 @@
 // "lazy load"- db may not be immediately initialized
-const db = searchIndex({ name: 'searchIndexInBrowser' })
+const db = searchIndex({ name: 'wineDB' })
 
 const search = function (q) {
   emptyElements(['searchResults'])
