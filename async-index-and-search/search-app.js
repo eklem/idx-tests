@@ -39,10 +39,12 @@ const emptyElements = function (elements) {
   })
 }
 
-const webworker = new Worker("worker-indexing.js");
-
-webworker.onerror = function (err) {
-  console.log('worker is suffering!', err)
+// Listen to key up and initiate indexing
+document.getElementById("index").onclick = function() {
+  const webworker = new Worker("worker-indexing.js");
+  webworker.onerror = function (err) {
+    console.log('worker is suffering!', err)
+  }
 }
 
 // Listen to key up and initiate a search
