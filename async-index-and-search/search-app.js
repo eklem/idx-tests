@@ -40,7 +40,7 @@ const emptyElements = function (elements) {
 
 // Start indexing on button click
 document.getElementById("index").onclick = function() {
-  const webworker = new Worker("worker-indexing.js");
+  const webworker = new Worker('worker-indexing.js')
   webworker.onerror = function (err) {
     console.log('worker is suffering!', err)
   }
