@@ -12,7 +12,7 @@ searchIndex({ name: 'wineDB' }, (err, db) => {
 
   const indexJSONData = function (data) {
     // console.log('Index data')
-    postMessage({messageType: 'indexingStarted')
+    postMessage({messageType: 'indexingStarted'})
     db.PUT(data)
       .then(function (message) {
         // console.log('Indexing finished. Indexed ' + message + ' wines')
