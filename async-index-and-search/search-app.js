@@ -1,3 +1,5 @@
+const db = searchIndex({ name: 'wineDB' })
+
 const search = function (q) {
   emptyElements(['searchResults'])
   db.SEARCH(...(q.split(' ')))
@@ -36,7 +38,7 @@ const emptyElements = function (elements) {
   })
 }
 
-// Listen to key up and initiate indexing
+// Start indexing on button click
 document.getElementById("index").onclick = function() {
   const webworker = new Worker("worker-indexing.js");
   webworker.onerror = function (err) {
@@ -44,13 +46,16 @@ document.getElementById("index").onclick = function() {
   }
 }
 
-// Listen to key up and initiate a search
+// Start indexing on button click
+document.getElementById("initiate").onclick = function() {
+  const db = searchIndex({ name: 'wineDB' })
+}
+
+// Initiate search on key up
 document.getElementById("searchQuery").onkeyup = function() {
-  searchIndex({ name: 'wineDB' }, (err, db) => {
-    search(document.getElementById("searchQuery").value)
-    console.log('Search query: ')
-    console.log(document.getElementById("searchQuery").value)
-  })
+  search(document.getElementById("searchQuery").value)
+  console.log('Search query: ')
+  console.log(document.getElementById("searchQuery").value)
 }
 
 // Helper functions for output when in the Browser Developer Tools - console window. Mostly Firefox works for now
