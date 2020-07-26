@@ -14,6 +14,8 @@ searchIndex({ name: 'wineDB' }, (err, db) => {
     db.PUT(data)
       .then(function (message) {
         console.log('Indexing finished. Indexed ' + message + ' wines')
+        console.log('Posting message back to main script');
+        postMessage({winesIndexed: message});
       })
       .catch(function (err) {
         console.log('Error while indexing: \n' + err.message)

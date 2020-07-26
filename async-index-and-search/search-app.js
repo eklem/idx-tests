@@ -44,6 +44,12 @@ document.getElementById("index").onclick = function() {
   webworker.onerror = function (err) {
     console.log('worker is suffering!', err)
   }
+  webworker.onmessage = function(e) {
+    result.obj = e.data;
+    console.log('Message received from worker' + result.obj.winesIndexed)
+    console.log('Re-initiating search-index')
+    let db = searchIndex({ name: 'wineDB' })
+  }
 }
 
 // Start indexing on button click
