@@ -49,6 +49,7 @@ document.getElementById("index").onclick = function() {
 // Start indexing on button click
 document.getElementById("initiate").onclick = function() {
   const db = searchIndex({ name: 'wineDB' })
+  console.log('Initiating search')
 }
 
 // Initiate search on key up
