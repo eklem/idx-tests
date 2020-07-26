@@ -1,6 +1,6 @@
 importScripts('https://fergiemcdowall.github.io/search-index/dist/search-index.1.0.6.js');
 
-searchIndex({ name: 'wineDB' }, (err, db) => {
+searchIndex({ name: 'someDB' }, (err, db) => {
   // db is guaranteed to be open and available
   // console.log('Read data')
   postMessage({messageType: 'fetchJSON'})
@@ -15,7 +15,7 @@ searchIndex({ name: 'wineDB' }, (err, db) => {
     postMessage({messageType: 'indexingStarted'})
     db.PUT(data)
       .then(function (message) {
-        // console.log('Indexing finished. Indexed ' + message + ' wines')
+        // console.log('Indexing finished. Indexed ' + message + ' docs')
         // console.log('Posting message back to main script');
         postMessage({messageType: 'indexingFinished', docsIndexed: message})
       })

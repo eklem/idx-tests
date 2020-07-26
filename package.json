@@ -1,0 +1,25 @@
+{
+  "name": "idx-tests",
+  "version": "0.0.1",
+  "description": "Miscellaneous search-index tests to figure out how to solve real world problems.",
+  "main": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eklem/idx-tests.git"
+  },
+  "keywords": [
+    "search",
+    "offline-first",
+    "browser",
+    "indexedDB"
+  ],
+  "author": "Espen Klem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eklem/idx-tests/issues"
+  },
+  "homepage": "https://github.com/eklem/idx-tests#readme"
+}
