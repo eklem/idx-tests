@@ -2,8 +2,8 @@ importScripts('https://fergiemcdowall.github.io/search-index/dist/search-index.1
 
 searchIndex({ name: 'wineDB' }, (err, db) => {
   // db is guaranteed to be open and available
-  console.log('Read data')
-  postMessage({messageType: 'readingDocs'})
+  // console.log('Read data')
+  postMessage({messageType: 'fetchJSON'})
   const readJSONData = function (url) {
     fetch(url)
       .then(response => response.json())
@@ -11,12 +11,12 @@ searchIndex({ name: 'wineDB' }, (err, db) => {
   }
 
   const indexJSONData = function (data) {
-    console.log('Index data')
-    postMessage({messageType: 'indexingStarted', docsIndexed: message})
+    // console.log('Index data')
+    postMessage({messageType: 'indexingStarted')
     db.PUT(data)
       .then(function (message) {
-        console.log('Indexing finished. Indexed ' + message + ' wines')
-        console.log('Posting message back to main script');
+        // console.log('Indexing finished. Indexed ' + message + ' wines')
+        // console.log('Posting message back to main script');
         postMessage({messageType: 'indexingFinished', docsIndexed: message})
       })
       .catch(function (err) {

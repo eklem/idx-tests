@@ -52,7 +52,7 @@ document.getElementById("index").onclick = function() {
     console.log('message type: ' + message.messageType)
 
     switch (message.messageType) {
-      case 'readingDocs':
+      case 'fetchJSON':
         console.log('Getting JSON data')
         break
       case 'indexingStarted':
