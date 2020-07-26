@@ -1,7 +1,8 @@
 importScripts('https://fergiemcdowall.github.io/search-index/dist/search-index.1.0.6.js');
 // "lazy load"- db may not be immediately initialized
-const db = searchIndex({ name: 'searchIndexInBrowser' })
-console.log('Indexing')
+searchIndex({ name: 'wineDB' }, (err, db) => {
+  // db is guaranteed to be open and available
+  console.log('Indexing')
 const readJSONData = function (url) {
   fetch(url)
     .then(response => response.json())
@@ -21,3 +22,4 @@ const indexJSONData = function (data) {
 
 // Index some data each time page loads (should add an _id on each object in array)
 readJSONData('https://raw.githubusercontent.com/eklem/dataset-vinmonopolet/master/dataset-vinmonopolet-red-and-white.json')
+})
