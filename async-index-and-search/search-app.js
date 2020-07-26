@@ -1,6 +1,3 @@
-// "lazy load"- db may not be immediately initialized
-const db = searchIndex({ name: 'wineDB' })
-
 const search = function (q) {
   emptyElements(['searchResults'])
   db.SEARCH(...(q.split(' ')))
@@ -49,9 +46,11 @@ document.getElementById("index").onclick = function() {
 
 // Listen to key up and initiate a search
 document.getElementById("searchQuery").onkeyup = function() {
-  search(document.getElementById("searchQuery").value)
-  console.log('Search query: ')
-  console.log(document.getElementById("searchQuery").value)
+  searchIndex({ name: 'wineDB' }, (err, db) => {
+    search(document.getElementById("searchQuery").value)
+    console.log('Search query: ')
+    console.log(document.getElementById("searchQuery").value)
+  }
 }
 
 // Helper functions for output when in the Browser Developer Tools - console window. Mostly Firefox works for now
