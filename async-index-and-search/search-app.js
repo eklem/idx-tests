@@ -1,4 +1,4 @@
-const db = searchIndex({ name: 'wineDB' })
+let db = searchIndex({ name: 'wineDB' })
 
 const search = function (q) {
   emptyElements(['searchResults'])
@@ -48,7 +48,7 @@ document.getElementById("index").onclick = function() {
 
 // Start indexing on button click
 document.getElementById("initiate").onclick = function() {
-  const db = searchIndex({ name: 'wineDB' })
+  let db = searchIndex({ name: 'wineDB' })
   console.log('Initiating search')
 }
 
