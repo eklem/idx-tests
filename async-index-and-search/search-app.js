@@ -59,7 +59,7 @@ document.getElementById("index").onclick = function() {
         console.log('Indexing started')
         break
       case 'indexingFinished':
-        console.log('Indexing finished, ' + result.docsIndexed + ' documents indexed')
+        console.log('Indexing finished, ' + message.docsIndexed + ' documents indexed')
         break
       default:
         console.log('Unknown message type from worker-indexing.js')
