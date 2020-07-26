@@ -13,6 +13,7 @@ searchIndex({ name: 'wineDB' }, (err, db) => {
     db.PUT(data)
       .then(function (message) {
         console.log('Indexing finished. Indexed ' + message + ' wines')
+        location.reload(); 
       })
       .catch(function (err) {
         console.log('Error while indexing:')
