@@ -45,9 +45,26 @@ document.getElementById("index").onclick = function() {
     console.log('worker is suffering!', err)
   }
   webworker.onmessage = function(e) {
-    let result = e.data;
-    console.log('Message received from worker' + result.winesIndexed)
-    console.log('Re-initiating search-index')
+    // Need switch for different messages back. 
+    // I.e. {messageType: 'indexFinished', docsIndexed: 9755}
+    // Or:  {messageType: 'indexStarted'}
+    let message = e.data;
+    console.log('message type: ' + message.messageType)
+
+    switch (message.messageType) {
+      case 'readingDocs':
+        console.log('Getting JSON data')
+        break
+      case 'indexingStarted':
+        console.log('Indexing started')
+        break
+      case 'indexingFinished':
+        console.log('Indexing finished, ' + result.docsIndexed + ' documents indexed')
+        break
+      default:
+        console.log('Unknown message type from worker-indexing.js')
+    }
+    // Re-initiate search-index for Chrome to recognise changes in indexedDB
     let db = searchIndex({ name: 'wineDB' })
   }
 }
