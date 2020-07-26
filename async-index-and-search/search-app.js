@@ -50,16 +50,20 @@ document.getElementById("index").onclick = function() {
     // Or:  {messageType: 'indexStarted'}
     let message = e.data;
     console.log('message type: ' + message.messageType)
+    let statusMessage = ''
 
     switch (message.messageType) {
       case 'fetchJSON':
-        console.log('Getting JSON data')
+        statusMessage = 'Getting JSON data'
+        document.getElementById('status').textContent=statusMessage
         break
       case 'indexingStarted':
-        console.log('Indexing started')
+        statusMessage = 'Indexing started'
+        document.getElementById('status').textContent=statusMessage
         break
       case 'indexingFinished':
-        console.log('Indexing finished, ' + message.docsIndexed + ' documents indexed')
+        statusMessage = 'Indexing finished, ' + message.docsIndexed + ' documents indexed'
+        document.getElementById('status').textContent=statusMessage
         break
       default:
         console.log('Unknown message type from worker-indexing.js')
@@ -67,12 +71,6 @@ document.getElementById("index").onclick = function() {
     // Re-initiate search-index for Chrome to recognise changes in indexedDB
     let db = searchIndex({ name: 'wineDB' })
   }
-}
-
-// Start indexing on button click
-document.getElementById("initiate").onclick = function() {
-  let db = searchIndex({ name: 'wineDB' })
-  console.log('Initiating search')
 }
 
 // Initiate search on key up
