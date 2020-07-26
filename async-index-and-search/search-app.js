@@ -50,7 +50,7 @@ document.getElementById("searchQuery").onkeyup = function() {
     search(document.getElementById("searchQuery").value)
     console.log('Search query: ')
     console.log(document.getElementById("searchQuery").value)
-  }
+  })
 }
 
 // Helper functions for output when in the Browser Developer Tools - console window. Mostly Firefox works for now
