@@ -53,7 +53,7 @@ document.getElementById('index').onclick = function() {
     // I.e. {messageType: 'indexFinished', docsIndexed: 9755}
     // Or:  {messageType: 'indexStarted'}
     let message = e.data;
-    console.log('message type: ' + message.messageType)
+    console.log('message type: ' + message.messageType + ' time used ' + message.timeUsed)
     let statusMessage = ''
 
     switch (message.messageType) {
@@ -62,15 +62,15 @@ document.getElementById('index').onclick = function() {
         document.getElementById('status').textContent=statusMessage
         break
       case 'fetchJSON':
-        statusMessage = 'Getting JSON data'
+        statusMessage = message.timeUsed + ' seconds on: Getting JSON data'
         document.getElementById('status').textContent=statusMessage
         break
       case 'indexingStarted':
-        statusMessage = 'Indexing started'
+        statusMessage = message.timeUsed + ' seconds on: Indexing started'
         document.getElementById('status').textContent=statusMessage
         break
       case 'indexingFinished':
-        statusMessage = 'Indexing finished, ' + message.docsIndexed + ' documents indexed'
+        statusMessage = message.timeUsed + ' seconds spent on: Indexing, ' + message.docsIndexed + ' documents indexed'
         document.getElementById('status').textContent=statusMessage
         break
       default:

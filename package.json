@@ -1,6 +1,6 @@
 {
   "name": "idx-tests",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Miscellaneous search-index tests to figure out how to solve real world problems.",
   "main": "README.md",
   "scripts": {
