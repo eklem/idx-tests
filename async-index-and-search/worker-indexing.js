@@ -22,7 +22,7 @@ const indexJSONData = function (data) {
 }
 
 const happenedAtTime = function () {
-  let time = Date.now()
+  let time = Date(Date.now())
   time = time.toLocaleTimeString()
   return time
 }
