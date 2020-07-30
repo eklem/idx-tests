@@ -22,8 +22,8 @@ const indexJSONData = function (data) {
 }
 
 const happenedAtTime = function () {
-  let time = Date(Date.now())
-  time = time.toLocaleTimeString()
+  let date = Date(Date.now())
+  let time = date.toLocaleTimeString()
   return time
 }
   
