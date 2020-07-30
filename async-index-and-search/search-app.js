@@ -53,7 +53,7 @@ document.getElementById('index').onclick = function() {
     // I.e. {messageType: 'indexFinished', docsIndexed: 9755}
     // Or:  {messageType: 'indexStarted'}
     let message = e.data;
-    console.log('Time: ' + message.time + 'message type: ' + message.messageType)
+    console.log('message type: ' + message.messageType)
     let statusMessage = ''
 
     switch (message.messageType) {

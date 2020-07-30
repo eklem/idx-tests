@@ -1,7 +1,7 @@
 importScripts('https://fergiemcdowall.github.io/search-index/dist/search-index.1.0.6.js');
 
 const readJSONData = function (url) {
-  postMessage({messageType: 'fetchJSON', time: happenedAtTime()})
+  postMessage({messageType: 'fetchJSON'})
   fetch(url)
     .then(response => response.json())
     .then(data => indexJSONData(data))
@@ -10,26 +10,20 @@ const readJSONData = function (url) {
 const indexJSONData = function (data) {
   searchIndex({ name: 'someDB' }, (err, db) => {
     // db is guaranteed to be open and available
-    postMessage({messageType: 'indexingStarted', time: happenedAtTime()})
+    postMessage({messageType: 'indexingStarted'})
     db.PUT(data)
       .then(function (message) {
-        postMessage({messageType: 'indexingFinished', time: happenedAtTime(), docsIndexed: message})
+        postMessage({messageType: 'indexingFinished', docsIndexed: message})
       })
       .catch(function (err) {
         console.log('Error while indexing: \n' + err.message)
       })
   })
 }
-
-const happenedAtTime = function () {
-  let time = Date(Date.now())
-  console.log('date: ' + time)
-  return 1
-}
   
 // Listener for message from search-app.js
 onmessage = function(e) {
   let URL = e.data;
-  postMessage({messageType: 'gotURL', time: happenedAtTime()})
+  postMessage({messageType: 'gotURL'})
   readJSONData(URL)
 }
