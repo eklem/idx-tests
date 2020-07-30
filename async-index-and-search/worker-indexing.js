@@ -23,8 +23,8 @@ const indexJSONData = function (data) {
 
 const happenedAtTime = function () {
   let date = Date(Date.now())
-  let time = date.toLocaleTimeString()
-  return time
+  console.log('date: ' + date)
+  return 1
 }
   
 // Listener for message from search-app.js
