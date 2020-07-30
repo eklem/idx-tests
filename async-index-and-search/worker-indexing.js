@@ -4,7 +4,7 @@ const readJSONData = function (url) {
   postMessage({messageType: 'fetchJSON'})
   fetch(url)
     .then(response => response.json())
-    .then(data => indexJSONData(data))
+    .then(JSONdata => indexJSONData(JSONdata))
 }
 
 const indexJSONData = function (data) {
