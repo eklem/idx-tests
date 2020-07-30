@@ -29,7 +29,7 @@ const happenedAtTime = function () {
   
 // Listener for message from search-app.js
 onmessage = function(e) {
-  result.Url = e.data;
+  let URL = e.data;
   postMessage({messageType: 'gotURL', time: happenedAtTime})
-  readJSONData(result.Url)
+  readJSONData(URL)
 }
