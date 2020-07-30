@@ -1,4 +1,5 @@
 let db = searchIndex({ name: 'someDB' })
+const webworker = new Worker('worker-indexing.js')
 
 const search = function (q) {
   emptyElements(['searchResults'])
@@ -39,20 +40,27 @@ const emptyElements = function (elements) {
 }
 
 // Start indexing on button click
-document.getElementById("index").onclick = function() {
-  const webworker = new Worker('worker-indexing.js')
+document.getElementById('index').onclick = function() {
+  let URL = document.getElementById('indexUrl').value
+  webworker.postMessage(URL)
+
   webworker.onerror = function (err) {
     console.log('worker is suffering!', err)
   }
+
   webworker.onmessage = function(e) {
     // Need switch for different messages back. 
     // I.e. {messageType: 'indexFinished', docsIndexed: 9755}
     // Or:  {messageType: 'indexStarted'}
     let message = e.data;
-    console.log('message type: ' + message.messageType)
+    console.log('Time: ' + message.time + 'message type: ' + message.messageType)
     let statusMessage = ''
 
     switch (message.messageType) {
+      case 'gotURL':
+        statusMessage = 'web worker got URL'
+        document.getElementById('status').textContent=statusMessage
+        break
       case 'fetchJSON':
         statusMessage = 'Getting JSON data'
         document.getElementById('status').textContent=statusMessage

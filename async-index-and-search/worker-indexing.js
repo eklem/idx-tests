@@ -1,29 +1,35 @@
 importScripts('https://fergiemcdowall.github.io/search-index/dist/search-index.1.0.6.js');
 
-searchIndex({ name: 'someDB' }, (err, db) => {
-  // db is guaranteed to be open and available
-  // console.log('Read data')
-  postMessage({messageType: 'fetchJSON'})
-  const readJSONData = function (url) {
-    fetch(url)
-      .then(response => response.json())
-      .then(data => indexJSONData(data))
-  }
+const readJSONData = function (url) {
+  postMessage({messageType: 'fetchJSON', time: happenedAtTime})
+  fetch(url)
+    .then(response => response.json())
+    .then(data => indexJSONData(data))
+}
 
-  const indexJSONData = function (data) {
-    // console.log('Index data')
-    postMessage({messageType: 'indexingStarted'})
+const indexJSONData = function (data) {
+  searchIndex({ name: 'someDB' }, (err, db) => {
+    // db is guaranteed to be open and available
+    postMessage({messageType: 'indexingStarted', time: happenedAtTime})
     db.PUT(data)
       .then(function (message) {
-        // console.log('Indexing finished. Indexed ' + message + ' docs')
-        // console.log('Posting message back to main script');
-        postMessage({messageType: 'indexingFinished', docsIndexed: message})
+        postMessage({messageType: 'indexingFinished', time: happenedAtTime, docsIndexed: message})
       })
       .catch(function (err) {
         console.log('Error while indexing: \n' + err.message)
       })
-  }
+  })
+}
 
-  // Index some data each time page loads (should add an _id on each object in array)
-  readJSONData('https://raw.githubusercontent.com/eklem/dataset-vinmonopolet/master/dataset-vinmonopolet-red-and-white.json')
-})
+const happenedAtTime = function () {
+  let time = DateNow()
+  time = time.toTimeString()
+  return time
+}
+  
+// Listener for message from search-app.js
+onmessage = function(e) {
+  result.Url = e.data;
+  postMessage({messageType: 'gotURL', time: happenedAtTime})
+  readJSONData(result.Url)
+}
