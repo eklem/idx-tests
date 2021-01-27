@@ -77,7 +77,7 @@ document.getElementById('index').onclick = function() {
         console.log('Unknown message type from worker-indexing.js')
     }
     // Re-initiate search-index for Chrome to recognise changes in indexedDB
-    let db = SearchIndex({ name: 'someDB' })
+    let db = searchIndex({ name: 'someDB' })
   }
 }
 
