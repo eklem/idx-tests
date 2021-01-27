@@ -1,4 +1,4 @@
-importScripts('https://fergiemcdowall.github.io/search-index/dist/search-index.1.0.6.js')
+importScripts('https://fergiemcdowall.github.io/search-index/demo/lib/search-index.js')
 
 let timeUsed = {start: 0, fetchJSON: 0, indexingStarted: 0, indexingFinished: 0}
 
