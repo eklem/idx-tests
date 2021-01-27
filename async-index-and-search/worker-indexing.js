@@ -1,4 +1,4 @@
-importScripts('https://cdn.jsdelivr.net/npm/search-index@1.0.6/dist/search-index.1.0.6.js')
+importScripts('https://cdn.jsdelivr.net/npm/search-index@2.1.0/dist/search-index-2.1.0.js')
 
 let timeUsed = { start: 0, fetchJSON: 0, indexingStarted: 0, indexingFinished: 0 }
 
@@ -15,7 +15,7 @@ const readJSONData = function (url) {
 }
 
 const indexJSONData = function (data) {
-  searchIndex({ name: 'someDB' }, (err, db) => {
+  SearchIndex({ name: 'someDB' }, (err, db) => {
     // db is guaranteed to be open and available
     timeUsed.indexingStarted = (timeNow() - timeUsed.start - timeUsed.fetchJSON).toFixed(3)
     postMessage({messageType: 'indexingStarted', timeUsed: timeUsed.indexingStarted})
