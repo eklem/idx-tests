@@ -1,4 +1,4 @@
-let db = searchIndex({ name: 'someDB' })
+let db = SearchIndex({ name: 'someDB' })
 const webworker = new Worker('worker-indexing.js')
 
 const search = function (q) {
@@ -77,7 +77,7 @@ document.getElementById('index').onclick = function() {
         console.log('Unknown message type from worker-indexing.js')
     }
     // Re-initiate search-index for Chrome to recognise changes in indexedDB
-    let db = searchIndex({ name: 'someDB' })
+    let db = SearchIndex({ name: 'someDB' })
   }
 }
 
