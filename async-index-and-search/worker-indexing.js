@@ -1,4 +1,4 @@
-importScripts('https://fergiemcdowall.github.io/search-index/dist/search-index.1.0.6.js')
+importScripts('https://fergiemcdowall.github.io/search-index/demo/lib/search-index.js')
 
 let timeUsed = {start: 0, fetchJSON: 0, indexingStarted: 0, indexingFinished: 0}
 
@@ -15,7 +15,7 @@ const readJSONData = function (url) {
 }
 
 const indexJSONData = function (data) {
-  searchIndex({ name: 'someDB' }, (err, db) => {
+  SearchIndex({ name: 'someDB' }, (err, db) => {
     // db is guaranteed to be open and available
     timeUsed.indexingStarted = (timeNow() - timeUsed.start - timeUsed.fetchJSON).toFixed(3)
     postMessage({messageType: 'indexingStarted', timeUsed: timeUsed.indexingStarted})
@@ -29,7 +29,7 @@ const indexJSONData = function (data) {
       })
   })
 }
-  
+ 
 // Listener for message from search-app.js
 onmessage = function(e) {
   timeUsed.start = timeNow()
