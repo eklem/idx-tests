@@ -23,10 +23,9 @@
 // })()
 
 (async () => {
-
   const si = require('../node_modules/search-index/')
   const db = await si({ name: 'nodeQuickstart' })
-  
+
   await db.PUT([
     {
       _id: 1,
@@ -50,7 +49,6 @@
     }
   ).then(console.log)
 
-
   console.log('\nSEARCH-ing ->')
   await db.QUERY(
     {
@@ -58,16 +56,13 @@
     }
   ).then(console.log)
 
-
   console.log('\nSEARCH-ing with negation ->')
   await db.QUERY(
     {
       NOT: {
-        INCLUDE: {SEARCH: ['The']},
-        EXCLUDE: {SEARCH: ['Beatles']}
+        INCLUDE: { SEARCH: ['The'] },
+        EXCLUDE: { SEARCH: ['Beatles'] }
       }
     }
   ).then(console.log)
-
-  
 })()

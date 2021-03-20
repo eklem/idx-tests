@@ -1,4 +1,4 @@
-let db = SearchIndex({ name: 'someDB' })
+const db = SearchIndex({ name: 'someDB' })
 const webworker = new Worker('worker-indexing.js')
 
 const search = function (q) {
