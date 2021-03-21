@@ -18,7 +18,7 @@ const index = async (url) => {
   //   si.PUT(dump)
   // }).catch(console.log)
 
-  const { PUT } = await SearchIndex()
+  const { PUT } = await window.SearchIndex()
 
   window.fetch(url)
     .then(response => response.json())
