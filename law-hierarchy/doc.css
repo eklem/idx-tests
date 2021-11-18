@@ -1,0 +1,39 @@
+body {
+  background: #ebebeb;
+}
+#header {
+  background: #cbcbcb;
+  padding: 10px;
+}
+
+#content {
+  background:#fbfbfb;
+  padding: 20px;
+  margin:20px;
+}
+
+ol {
+  border-left: 2px solid #909090;
+  list-style: none;
+  counter-reset: li;
+}
+li {
+  counter-increment: li;
+  margin-bottom: 10px;
+  border: 1px solid #cbcbcb;
+}
+li:first-child {
+  padding-top:10px;
+}
+
+li::before {
+  content: counter(li);
+  display: inline-block;
+  background: #fbfbfb;
+  color: #DB142C;
+  width: 1em;
+  margin-left: -1.8em;
+  margin-right: 0.5em;
+  text-align: right;
+  direction: rtl
+}
