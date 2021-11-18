@@ -32,7 +32,6 @@ li > p {
 }
 
 li::before {
-  content: counter(li, lower-alpha);
   display: inline-block;
   background: #fbfbfb;
   color: #DB142C;
