@@ -20,14 +20,19 @@ ol {
 li {
   counter-increment: li;
   margin-bottom: 10px;
-  border: 1px solid #cbcbcb;
+  /* border: 1px solid #cbcbcb; */
 }
 li:first-child {
-  padding-top:10px;
+  padding-top: 10px;
+}
+
+li > p {
+  margin-left: 0;
+  text-indent: 1em;
 }
 
 li::before {
-  content: counter(li);
+  content: counter(li, lower-alpha);
   display: inline-block;
   background: #fbfbfb;
   color: #DB142C;
@@ -36,4 +41,12 @@ li::before {
   margin-right: 0.5em;
   text-align: right;
   direction: rtl
+}
+
+ol > li::before {
+  content: counter(li, decimal);
+}
+
+ol > li > ol > li::before {
+  content: counter(li, lower-alpha);
 }
