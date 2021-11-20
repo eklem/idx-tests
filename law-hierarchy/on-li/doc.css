@@ -1,0 +1,48 @@
+body {
+  background: #ebebeb;
+  color: #141414;
+}
+#header {
+  background: #cbcbcb;
+  padding: 10px;
+}
+
+#content {
+  background:#fbfbfb;
+  padding: 20px;
+  margin:20px;
+}
+
+/* ol {
+  border-left: 2px solid #rgba();
+} */
+
+ol {
+  border-left: 5px solid #cbcbcb;
+  margin: 5px 0 5px 0 ;
+  padding: 0 0 0 20px;
+  direction: ltr;
+}
+
+ol * ol {
+  border-left: 5px solid #cbcbcb;
+}
+
+li::marker {
+  direction: ltr;
+}
+
+li {
+  margin: 0 0 10px 0;
+  direction: ltr;
+  border:1px solid #cbcbcb;
+}
+
+li > p {
+  margin-left: 0;
+  text-indent: 1em;
+}
+
+ol > li > ol {
+  list-style-type: lower-alpha;
+}

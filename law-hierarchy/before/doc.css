@@ -1,5 +1,6 @@
 body {
   background: #ebebeb;
+  color: #141414;
 }
 #header {
   background: #cbcbcb;
@@ -14,7 +15,7 @@ body {
 
 ol {
   border-left: 2px solid #909090;
-  list-style: none;
+  /* list-style: none; */
   counter-reset: li;
 }
 li {
@@ -31,10 +32,16 @@ li > p {
   text-indent: 1em;
 }
 
+li::marker {
+  z-index: 10;
+  display: block;
+}
+
 li::before {
+  z-index: 0;
+  display: block;
   display: inline-block;
-  background: #fbfbfb;
-  color: #DB142C;
+  background: #FED530;
   width: 1em;
   margin-left: -1.8em;
   margin-right: 0.5em;
