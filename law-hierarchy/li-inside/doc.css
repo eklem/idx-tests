@@ -13,11 +13,16 @@ body {
   margin:20px;
 }
 
-ol, ul {
-  border-left: 1px solid #909090;
+ul, ol {
+  border: none;
   margin: 5px 0 5px 0 ;
-  padding: 0 0 0 14px;
+  padding: 0 0 0 10px;
   list-style-position: inside;
+}
+
+ul * ol, ul * ul, ol * ol, ol * ul {
+  border-left: 1px solid #909090;
+  padding: 0 0 0 14px;
 }
 
 ul {
