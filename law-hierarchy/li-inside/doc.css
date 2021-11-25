@@ -13,6 +13,11 @@ body {
   margin:20px;
 }
 
+h2 {
+  margin-left: 0;
+}
+
+/* List formatting */
 ul, ol {
   border: none;
   margin: 5px 0 5px 0 ;
