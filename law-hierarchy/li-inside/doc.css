@@ -51,7 +51,7 @@ li {
 }
 
 /* not strictly needed for now, but if a <p> inside a <li>-element, just make it not cause any confusion */
-li > p {
+p, li > p {
   margin-left: 0;
   text-indent: 0em;
 }
