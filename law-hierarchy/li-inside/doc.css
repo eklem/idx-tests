@@ -13,16 +13,15 @@ body {
   margin:20px;
 }
 
-ol {
-  border-left: 5px solid #cbcbcb;
+ol, ul {
+  border-left: 1px solid #909090;
   margin: 5px 0 5px 0 ;
-  padding: 0 0 0 20px;
-  list-style: inside;
-  list-style-type: decimal;
+  padding: 0 0 0 14px;
+  list-style-position: inside;
 }
 
-ol * ol {
-  border-left: 5px solid #cbcbcb;
+ul {
+  list-style: none;
 }
 
 li::marker {
@@ -33,14 +32,22 @@ li {
   margin: 0 0 10px 0;
   direction: ltr;
   /* border:1px solid #cbcbcb; */
-  text-indent: -17px;
+  text-indent: -10px;
 }
 
 li > p {
   margin-left: 0;
-  text-indent: 1em;
+  text-indent: 0em;
 }
 
-ol > li > ol {
+.ls_decimal {
+  list-style-type: decimal;
+}
+
+.ls_lowerAlpha {
   list-style-type: lower-alpha;
+}
+
+.ls_upperRoman {
+  list-style-type: upper-roman;
 }
