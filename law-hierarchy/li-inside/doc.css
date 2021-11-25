@@ -24,22 +24,15 @@ ul {
   list-style: none;
 }
 
-li::marker {
-  direction: ltr;
-}
-
 li {
   margin: 0 0 10px 0;
   direction: ltr;
+  /* just to debug what's happening */
   /* border:1px solid #cbcbcb; */
   text-indent: -10px;
 }
 
-li > p {
-  margin-left: 0;
-  text-indent: 0em;
-}
-
+/* Setting list styles */
 .ls_decimal {
   list-style-type: decimal;
 }
@@ -50,4 +43,10 @@ li > p {
 
 .ls_upperRoman {
   list-style-type: upper-roman;
+}
+
+/* not strictly needed for now, but if a <p> inside a <li>-element, just make it not cause any confusion */
+li > p {
+  margin-left: 0;
+  text-indent: 0em;
 }
