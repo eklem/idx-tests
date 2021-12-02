@@ -39,9 +39,9 @@ ul * ul * ol, ol * ul * ol {
   margin: 5px 0 5px 10px
 }
 
-/* ul * ol, ul * ul, ol * ol, ol * ul {
+ul * ol, ul * ul, ol * ol, ol * ul {
   border-left: 1px solid #909090;
-} */
+}
 
 ol {
   padding: 0 0 0 14px;
