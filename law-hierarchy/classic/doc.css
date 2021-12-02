@@ -1,0 +1,82 @@
+body {
+  background: #ebebeb;
+  color: #141414;
+}
+
+#header {
+  background: #cbcbcb;
+  padding: 10px;
+}
+
+#content {
+  background:#fbfbfb;
+  padding: 20px;
+}
+
+h2 {
+  margin-left: 0;
+  margin-top: 30px;
+}
+
+p {
+  margin-top: 20px;
+}
+
+a:link, a:visited, a:hover, a:focus, a:active {
+  color: #DB142C;
+  text-decoration: underline;
+}
+
+/* List formatting */
+ul, ol {
+  border: none;
+  margin: 5px 0 5px 0 ;
+  padding: 0 0 0 10px;
+  list-style-position: inside;
+}
+
+ul * ol, ul * ul, ol * ol, ol * ul {
+  border-left: 1px solid #909090;
+  padding: 0 0 0 14px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 0 0 10px 0;
+  direction: ltr;
+  /* just to debug what's happening */
+  /* border:1px solid #cbcbcb; */
+  text-indent: -10px;
+}
+
+ul.ledd > li {
+  text-indent: 10px;
+}
+
+
+li.nullNote {
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Setting list styles */
+.ls_decimal {
+  list-style-type: decimal;
+}
+
+.ls_lowerAlpha {
+  list-style-type: lower-alpha;
+}
+
+.ls_upperRoman {
+  list-style-type: upper-roman;
+}
+
+/* not strictly needed for now, but if a <p> inside a <li>-element, just make it not cause any confusion */
+p, li > p {
+  margin-left: 0;
+  text-indent: 0em;
+}
