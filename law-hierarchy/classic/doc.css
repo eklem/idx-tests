@@ -35,13 +35,25 @@ ul, ol {
   list-style-position: inside;
 }
 
+ul * ul * ol, ol * ul * ol {
+  margin: 5px 0 5px 10px
+}
+
 ul * ol, ul * ul, ol * ol, ol * ul {
   border-left: 1px solid #909090;
+}
+
+ol {
   padding: 0 0 0 14px;
 }
 
-ul {
+ul.ledd {
   list-style: none;
+  padding: 0 0 0 0;
+}
+ol * ul.ledd, ul * ul.ledd {
+  list-style: none;
+  padding: 0 0 0 4px;
 }
 
 li {
@@ -61,6 +73,7 @@ ul.ledd > li.nullNote {
   font-style: italic;
   font-size: 14px;
   text-indent: -10px;
+  margin-left: 10px;
 }
 
 /* Setting list styles */
