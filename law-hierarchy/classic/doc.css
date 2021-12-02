@@ -57,9 +57,10 @@ ul.ledd > li {
 }
 
 
-li.nullNote {
+ul.ledd > li.nullNote {
   font-style: italic;
   font-size: 14px;
+  text-indent: -10px;
 }
 
 /* Setting list styles */
